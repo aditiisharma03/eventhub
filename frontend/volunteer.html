@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="config.js"></script>
+    <script src="index.js" defer></script>
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('assets/imgnew.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+             
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+        }
+
+        .dashboard-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            flex: 1;
+        }
+
+        .logout-button {
+            background-color: red;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .logout-button:hover {
+            background-color: darkred;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .task-container {
+            width: 90%;
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            background: inherit; /* Same background as body */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .task-section {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.8); /* Slight transparency */
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .task-section h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #ff6a00;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 18px;
+            padding: 15px;
+            margin: 12px 0;
+            border: 2px solid #333;
+            border-radius: 8px;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 400;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        li:hover {
+            background: #ffebcc;
+            transform: scale(1.02);
+        }
+
+        .task-text {
+            font-weight: bold;
+            font-size: 18px;
+            flex: 1;
+            text-align: left;
+        }
+
+        .deadline {
+            font-size: 14px;
+            color: #555;
+            text-align: left;
+            margin-left: 10px;
+            flex: 1;
+        }
+
+        .complete-btn {
+            background-color: white;
+            color: #ff9800;
+            border: 2px solid #ff9800;
+            padding: 8px 16px;
+            font-size: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+            font-weight: bold;
+            margin-left: auto;
+        }
+
+        .complete-btn:hover {
+            background-color: #ff9800;
+            color: white;
+        }
+
+        .task-content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="dashboard-title">Volunteer Dashboard</div>
+        <button class="logout-button" onclick="logOut()">Logout</button>
+    </nav>
+    
+    <div class="container">
+        <section class="task-container">
+            <div class="task-section">
+                <h2>📌 Incomplete Tasks</h2>
+                <ul id="todo-list"></ul>
+            </div>
+            <div class="task-section">
+                <h2>✅ Completed Tasks</h2>
+                <ul id="completed-list"></ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

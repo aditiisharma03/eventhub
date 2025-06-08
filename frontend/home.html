@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Event Hub</title>
+    <script src="config.js"></script>
+    <link rel="stylesheet" href="home.css">
+    
+</head>
+<header>
+    <div class="logo-title">
+        <img src="assets/logo.jpeg" alt="Logo">
+        <h1>College Event Hub</h1>
+    </div>
+    <nav>
+        <ul>
+            <a href="#" id="homeLink">Home</a>
+            <a href="#" id="loginLink">login</a>
+           <a href="#" id="AboutLink">About</a>
+           <a href="#" id="volunteerLink">Volunteer</a>
+            
+            <a href="#" id="signupLink">Signup</a>
+
+        </ul>
+    </nav>
+</header>
+
+
+<main>
+    
+    <div class="slideshow-container">
+        
+        <div class="slideshow">
+            <img src="http://www.banasthali.org/banasthali/wcms/en/home/photogallery/physical/basketball13.avsFiles/Photo/basketball8.jpg" alt="Image 2">
+        </div>
+        <div class="slideshow">
+            <img src="http://www.banasthali.org/banasthali/wcms/en/home/photogallery/events/Pared.avsFiles/Photo/pic56.jpg" alt="Image 3">
+        </div>
+        
+        
+        <div class="slideshow">
+            <img src="assets/img11.png" alt="Image 6">
+        </div>
+        <div class="slideshow">
+            <img src="http://www.banasthali.org/banasthali/wcms/en/home/photogallery/moral/program_puja.avsFiles/Photo/program%20on%20durga%20pujas.jpg" alt="Image 7">
+        </div>
+        <div class="slideshow">
+            <img src="http://www.banasthali.org/banasthali/wcms/en/home/photogallery/events/MainAage.avsFiles/Photo/pic21.jpg" alt="Image 8">
+        </div>
+        <div class="slideshow">
+            <img src="http://www.banasthali.org/banasthali/wcms/en/home/photogallery/events/MayukhEvent06.avsFiles/Photo/pic48.jpg" alt="Image 9">
+        </div>
+    </div>
+<br>
+
+    <div class="scrolling-banner">
+        <span class="scrolling-banner-text">
+            Welcome to College Event Hub - Your one-stop destination for all college events!
+        </span>
+    </div>
+    
+      <!-- Login Form -->
+      <div class="container" id="loginForm">
+        <h2>Login</h2>
+        <input type="text" id="loginRoll" placeholder="Enter BV Roll No.">
+        
+        <input type="password" id="loginPassword" placeholder="Enter Password">
+        <select id="loginRole">
+            <option value="">Select Role</option>
+            <option value="student">Student</option>
+           
+            <option value="admin">Admin</option>
+        </select>
+        
+        <p class="error" id="loginError"></p>
+        
+        <button class="btn" id="loginBtn">Login</button>
+        <p class="switch-form">New here? <a href="#" id="switchToSignup">Signup</a></p>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="container hidden" id="signupForm">
+        <h2>Signup</h2>
+        <input type="text" id="signupName" placeholder="Full Name">
+        <input type="email" id="signupEmail" placeholder="Email">
+        <input type="text" id="signupRoll" placeholder="BV Roll Number">
+        <input type="password" id="signupPassword" placeholder="Create Password">
+        <input type="text" id="signupClass" placeholder="Class">
+        <input type="text" id="signupCourse" placeholder="Course">
+        <select id="signupRole">
+            <option value="">Select Role</option>
+            <option value="student">Student</option>
+          
+            <option value="admin">Admin</option>
+        </select>
+        
+        <p class="error" id="signupError"></p>
+        <button class="btn" id="signupBtn">Sign Up</button>
+        <p class="switch-form">Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+    </div>
+    
+
+     
+    <div class="aboutsection" style="background: yellow" id="aboutSection">
+        <h2>About Banasthali Vidyapith</h2>
+        <br>
+        <p>
+            Banasthali Vidyapith is one of India’s premier institutions for women's education, founded in 1935. 
+            It follows a five-fold educational philosophy focusing on Physical, Practical, Aesthetic, Moral, and Intellectual growth.
+            The university offers diverse programs in Science, Technology, Arts, and Management, integrating modern education with traditional values.
+        </p>
+        <p>
+            The university is known for its vibrant events, including cultural fests, academic conferences, and sports tournaments. 
+            Students actively participate in national-level competitions, innovation challenges, and leadership programs, 
+            making Banasthali a hub for holistic development and lifelong learning.
+        </p>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="volunteersection">
+        <div class="volunteer-heading">Want to be a Volunteer? Apply Soon!</div>
+        <p class="volunteer-perks">
+            As a volunteer, you'll gain valuable experience, develop leadership skills, and expand your network. 
+            Enjoy exclusive access to behind-the-scenes event planning, receive a certificate of appreciation, and 
+            enhance your resume with hands-on teamwork. Plus, you'll be part of a passionate community making a real impact!  
+            <br><br>
+            Volunteering is a great opportunity to work closely with event organizers, improve your problem-solving abilities, 
+            and learn how to manage tasks efficiently under deadlines. You’ll also get to interact with students and professionals, 
+            boosting your communication and collaboration skills.  
+            <br><br>
+            Whether you're looking to contribute your time, build new friendships, or challenge yourself in an exciting role, 
+            volunteering will provide you with experiences that last a lifetime. Don't miss out—apply now and be a part of something special!
+        </p>
+    </div>
+    
+</main>
+<br>
+<br>
+<footer>
+    <p>&copy; 2025 College Event Hub. All rights reserved.</p>
+</footer>
+
+<script src="home.js"></script>
+
+</body>
+</html>

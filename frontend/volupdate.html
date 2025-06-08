@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Updates</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="config.js"></script>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: white;
+            color: black;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 3px solid #ff7300;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .header-left {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Title Below Header */
+        h1 {
+            margin-top: 30px;
+            color: black;
+            font-size: 22px;
+        }
+
+        /* Search Bar */
+        #search {
+            width: 35%;
+            padding: 8px;
+            font-size: 16px;
+            margin: 20px auto;
+            border: 1px solid #ff7300;
+            border-radius: 5px;
+            outline: none;
+            background-color: white;
+            color: black;
+            display: block;
+        }
+
+        #search:focus {
+            border-color: #ff4500;
+            background-color: #f9f9f9;
+        }
+
+        /* Table Styling */
+        table {
+            width: 85%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: white;
+            color: black;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0px 3px 8px rgba(255, 69, 0, 0.2);
+            border: 1px solid #ff7300;
+        }
+
+        /* Table Headers */
+        th {
+            background-color: #ff7300;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        /* Table Rows */
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        /* Alternating Row Colors */
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Status Styling */
+        .status {
+            font-weight: 600;
+            padding: 6px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            font-size: 14px;
+        }
+
+        .pending {
+            background-color: #ff9800;
+            color: black;
+        }
+
+        .completed {
+            background-color: #a93226;
+            color: white;
+        }
+
+        /* Main Content - Pushes Footer Down */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Approve Button */
+.approve-btn {
+    background-color: #e3682e;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.approve-btn:hover {
+    background-color: #218838;
+}
+
+
+        /* Footer - Sticks to Bottom */
+        footer {
+            background-color: black;
+            color: white;
+            padding: 10px 0;
+            font-size: 12px;
+            text-align: center;
+            border-top: 3px solid #ff7300;
+            width: 100%;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">Hello Admin!</div>
+    </header>
+
+    <main>
+         
+        
+       
+        <input type="text" id="search" placeholder="Search Student..." onkeyup="searchVolunteer()">
+
+        
+        <h1>Volunteer Requests</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Roll Number</th>
+                    <th>Student Name</th>
+                    <th>Event Interested</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="volunteer-requests">
+                <tr>
+                    <td>S101</td>
+                    <td>Rohan Mehta</td>
+                    <td>Tech Fest</td>
+                    <td><button class="approve-btn" onclick="approveRequest(this)">Approve</button></td>
+                </tr>
+                <tr>
+                    <td>S102</td>
+                    <td>Sanya Kapoor</td>
+                    <td>Cultural Night</td>
+                    <td><button class="approve-btn" onclick="approveRequest(this)">Approve</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 College Event Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+
+document.addEventListener("DOMContentLoaded", () => {
+    fetchVolunteerRequests(); // Fetch volunteer requests when page loads
+});
+
+
+
+async function fetchVolunteerRequests() {
+    try {
+        const response = await fetch("http://localhost:5000/api/admin/volunteers/requests");
+        if (!response.ok) throw new Error("Failed to fetch data");
+
+        const data = await response.json();
+        console.log("✅ Volunteer Requests Data:", data);
+
+        const tableBody = document.querySelector("#volunteer-requests");
+        tableBody.innerHTML = ""; 
+
+        if (data.length === 0) {
+            tableBody.innerHTML = `<tr><td colspan="4">No pending volunteer requests found.</td></tr>`;
+            return;
+        }
+
+        data.forEach((volunteer) => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${volunteer.BVroll}</td>  <!-- ✅ Display Roll Number instead of ID -->
+                <td>${volunteer.name}</td>
+                <td>${volunteer.event_name}</td>
+                <td><button class="approve-btn" onclick="approveRequest(${volunteer.id})">Approve</button></td>
+            `;
+
+            tableBody.appendChild(row);
+        });
+    } catch (error) {
+        console.error("❌ Error fetching volunteer requests:", error);
+    }
+}
+
+async function approveRequest(userId) {
+    console.log("✅ Sending Volunteer Approval Request for User ID:", userId);
+    
+
+    try {
+        const response = await fetch("http://localhost:5000/api/admin/approve-volunteer", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ user_id: userId })  // ✅ Use 'user_id' instead of 'student_id'
+        });
+
+        const data = await response.json();
+        console.log("✅ Server Response:", data);
+        alert(data.message);
+    } catch (error) {
+        console.error("❌ Error approving volunteer:", error);
+    }
+}
+
+ 
+function searchVolunteer() {
+    const searchValue = document.getElementById("search").value.toLowerCase();
+const rows = document.querySelectorAll("#volunteer-requests tr");
+
+rows.forEach(row => {
+    const studentName = row.cells[1].textContent.toLowerCase(); // Student Name (2nd column)
+    const rollNumber = row.cells[0].textContent.toLowerCase(); // Roll Number (1st column)
+    const eventName = row.cells[2].textContent.toLowerCase(); // Event Name (3rd column)
+
+    if (studentName.includes(searchValue) || rollNumber.includes(searchValue) || eventName.includes(searchValue)) {
+        row.style.display = ""; // Show row if it matches search
+    } else {
+        row.style.display = "none"; // Hide row if it doesn't match
+    }
+});
+
+}
+
+
+
+ 
+    </script>
+
+</body>
+</html>

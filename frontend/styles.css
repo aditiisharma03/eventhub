@@ -1,0 +1,433 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+ 
+
+header {
+    background-color: #333;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+}
+
+header button {
+    font-size: 16px;
+    background-color: #ff9800;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none; /* Remove default button border */
+    cursor: pointer; /* Ensure cursor is a pointer */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header button:hover {
+    background-color: #f57c00;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+main {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a1212;
+    margin-bottom: 25px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+/* Task Form Styles */
+#add-task-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+#task-input, #deadline-input, #volunteer-select {
+    font-size: 16px;
+    padding: 15px;
+    border: 1px solid #141313;
+    border-radius: 8px;
+    background-color: #fff;
+    flex: 1 1 calc(33% - 15px);
+    box-sizing: border-box;
+}
+
+#add-task-btn {
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #ff9800;
+    padding: 15px 25px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 1 100%;
+}
+
+#add-task-btn:hover {
+    background-color: #f57c00;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Task List Styles */
+#task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d1c4e9;  /* Softer purple */
+    margin: 15px 0;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(37, 36, 37, 0.15);
+    font-size: 16px;
+    color: #1b121b;
+}
+
+.task-item div {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.task-item .task-title {
+    font-size: 10px;
+    font-weight: normal;
+    color: #1d1616; /* Improved contrast */
+    margin-bottom: 3px;
+}
+
+.task-item .task-deadline {
+    font-size: 16px;
+    color: #616161; /* Slightly darker for clarity */
+    white-space: nowrap;
+}
+
+.task-item button {
+    background-color: #e53935; /* Slightly brighter red */
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-item button:hover {
+    background-color: #b71c1c; /* Stronger hover effect */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Event Form Styles */
+#add-event-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+#event-input, #event-venue {
+    font-size: 16px;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    flex: 1 1 calc(50% - 10px);
+    box-sizing: border-box;
+}
+
+/* Date and Time Inputs */
+.date-time-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    flex: 1 1 100%;
+}
+
+.date-time-container input {
+    flex: 1;
+    padding: 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+/* Add Event Button */
+#add-event-btn {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    flex: 1 1 100%;
+}
+
+#add-event-btn:hover {
+    background-color: #e64a19;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Event List Styles */
+#event-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#event-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border-left: 6px solid #ff5722;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Event Name */
+.event-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    flex: 2;
+}
+
+/* Venue (Centered) */
+.event-venue {
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    font-weight: 600;
+    flex: 1;
+}
+
+/* Date & Time (Right-Aligned) */
+.event-date-time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 14px;
+    color: #444;
+    flex: 1;
+}
+
+.event-date {
+    font-weight: bold;
+}
+
+.event-time {
+    color: #888;
+}
+
+/* Delete Button */
+#event-list li button {
+    background-color: #d32f2f;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#event-list li button:hover {
+    background-color: #b71c1c;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #add-event-form {
+        flex-direction: column;
+    }
+
+    .date-time-container {
+        flex-direction: column;
+    }
+
+    #event-input, #event-venue, .date-time-container input {
+        flex: 1 1 100%;
+    }
+
+    #event-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .event-date-time {
+        align-items: flex-start;
+        text-align: left;
+        margin-top: 8px;
+    }
+}
+
+
+/* General Styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #333;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex; /* Enable flexbox for header */
+    justify-content: space-between; /* Distribute space between elements */
+    align-items: center; /* Vertically align items */
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+}
+
+header button {
+    font-size: 16px;
+    background-color: #ff9800;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header button:hover {
+    background-color: #f57c00;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+/* ... other styles ... */
+
+footer {
+    text-align: center; /* Center the text horizontally */
+    padding: 20px; /* Add some padding around the text */
+    /* Other footer styles as needed */
+}
+
+footer p {
+    margin: 0; /* Remove default paragraph margins */
+    /* Other paragraph styles as needed */
+}
+
+/* ... rest of your CSS ... */
+/* ... other styles ... */
+
+.task-item {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    background-color: #fff;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    border: 1px solid #4a4747;
+    flex-wrap: wrap; /* Allow wrapping within task item */
+}
+
+.task-item > div { /* Target direct children of .task-item */
+    flex: 1 1 calc(33% - 20px); /* Adjust widths as needed */
+    margin-right: 20px;
+}
+
+.task-item .task-details {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.task-item .task-assigned-to { /* New class for assigned-to */
+    background-color: #838282; /* Light gray background */
+    padding: 5px 10px; /* Add some padding */
+    border-radius: 5px; /* Round the corners */
+}
+
+.task-item .task-deadline {
+    font-size: 16px;
+    color: #1a1616;
+    white-space: nowrap;
+}
+#task-list li {
+    background: #fff;
+    padding: 12px;
+    margin: 8px 0;
+    border-left: 5px solid #ff5722; /* Highlight new tasks */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 80px; /* Ensures enough space for text */
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Highlight new tasks */
+#task-list li.new-task {
+    background: #ffccbc; /* Light red-orange */
+    transform: scale(1.02);
+}
+
+/* Ensure "Assigned to" appears at the bottom */
+.task-footer {
+    font-size: 14px;
+    color: #666;
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+}
